@@ -1,9 +1,18 @@
-div{
-    height: 400px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#container{
     width: 400px;
     background-color:aliceblue;
     border: 1px solid gray;
     margin: 30px auto; 
+   overflow: hidden;
+}
+p,h1{
+    padding-left: 10px;
+    padding-top: 10px;
 }
 img{
     width: 100%;
@@ -21,14 +30,49 @@ hr{
     border: none;              /* Removes default border */
     margin: 10px 0; 
 }
-div button{
-    flex: 1;
 
-}
 
 .winner{
     color: green;
 }
 .loser{
     color: red;
+}
+
+#btns{
+    display: flex;
+    margin-top: none;
+    justify-content: center ;
+    overflow: hidden; 
+    margin-top: 10px;
+}
+#btns button{
+    flex:1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    max-height: 50px;
+    margin: 1px;  
+}
+
+#p1button{
+    background-color:aquamarine;
+}
+#p1button:hover{
+    color: black;
+}
+#p2button{
+    background-color:blue;
+}#p2button:hover{
+    color: black;
+}
+#reset{
+    background-color:red;
+}
+#reset:hover{
+    color: black;
 }
