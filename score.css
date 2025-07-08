@@ -25,3 +25,10 @@ div button{
     flex: 1;
 
 }
+
+.winner{
+    color: green;
+}
+.loser{
+    color: red;
+}

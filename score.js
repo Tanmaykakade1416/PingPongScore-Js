@@ -4,6 +4,7 @@ const p1Display=document.querySelector('#p1Display');
 const p2Display=document.querySelector('#p2Display');
 const reset=document.querySelector('#reset');
 const result=document.querySelector('#result');
+const winningScoreSelect=document.querySelector('#playto');
 
 let p1score=0;
 let p2score=0;
@@ -16,7 +17,8 @@ p1btn.addEventListener('click',function(){
         if(p1score === winningScore){
             isGameOver=true;
             result.textContent="Congratulations!! Player 1 Won the Match";
-            p1Display.style.color = "green";
+            p1Display.classList.add('winner');
+            p2Display.classList.add('loser');
         }
         p1Display.textContent=p1score;
     }
@@ -27,21 +29,28 @@ p2btn.addEventListener('click',function(){
         if(p2score === winningScore){
             isGameOver=true;
             result.textContent="Congratulations!! Player 2 Won the Match";
-            p2Display.style.color = "red";
+            p2Display.classList.add('winner');
+            p1Display.classList.add('loser');
         }
         p2Display.textContent=p2score;
     }
 })
 
 // Rest button
-reset.addEventListener('click',function(){
+reset.addEventListener('click',resets);
+
+winningScoreSelect.addEventListener('change',function(){
+    winningScore=parseInt(this.value);
+    resets();
+});
+
+function resets(){
     isGameOver=false;
     p1score=0;
     p2score=0;
-    p1Display.style.color="black";
-    p2Display.style.color="black";
+    p1Display.classList.remove('winner','loser');
+    p2Display.classList.remove('winner','loser');
     result.textContent="Use the buttons below to keep Score"
     p1Display.textContent=0;
     p2Display.textContent=0;
-})
-
+}
